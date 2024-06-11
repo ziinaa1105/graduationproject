@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>당신을 위한 판례찾기 서비스</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+
+<h1>당신을 위한 판례찾기 서비스</h1>
+
+<div class="container">
+    <form action="/search" method="post">
+        <div class="form-group">
+            <input type="text" id="userinput" name="userinput" placeholder="질문을 입력해주세요" required>
+            <button type="submit">
+                <img src="search.png" alt="검색 아이콘">
+            </button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

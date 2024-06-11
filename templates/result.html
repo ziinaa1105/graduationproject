@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>당신을 위한 판례찾기 서비스</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+</head>
+
+<body>
+
+<h1>가장 유사한 판례</h1>
+
+<div class="result">
+    <h2><strong>유사도 점수 : </strong>{{ top_case.score }}</h2>
+    
+    <div class="info">
+        <p><strong>판례일련번호 : </strong>{{ top_case.case_id }}</p>
+        <p><strong>사건번호 : </strong>{{ top_case.사건번호 }}</p>
+    </div>
+        <div class="box-container">
+            <p class="box-title"><strong>판시사항 :</strong></p>
+            <div class="box">
+                <p class="box-content">{{ top_case.판시사항 }}</p>
+            </div>
+        </div>
+
+        <div class="box-container">
+            <p class="box-title"><strong>판결요지 :</strong></p>
+            <div class="box">
+                <p class="box-content">{{ top_case.판결요지 }}</p>
+        </div>
+    </div>
+
+</div>
+
+<form action="{{ url_for('recommend') }}" method="get">
+    <input type="hidden" name="recommend_cases" value='{{ recommend_cases | tojson }}'>
+    <button type="submit" class="recommend-button">추천판례보기</button>
+</form>
+
+</body>
+</html>
